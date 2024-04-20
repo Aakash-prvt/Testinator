@@ -6,19 +6,16 @@ class Telegram:
     BOT_TOKEN = env.get("TG_BOT_TOKEN", "abc")
     BOT_USERNAME = env.get("TG_BOT_USERNAME", "DrReactBot")
     EMOJIS = [
-        "👍", "❤", "🔥", 
-        "🥰", "👏",
-        "🎉", "🤩",
-        "🙏", "👌",
-        "😍", "🐳",
-        "❤‍🔥",
-        "🏆",
-        "🍾", "💋", "👻",
-        "👀","🙈",
+        "👍", "🔥", 
+        "👏",
+        "🤩",
+        "👌",
+        "😍",
+        "💋",
+        "👀",
         "😇",
-        "🗿",
-        "🆒", "💘",
-        "😘", "🙊", "😎",
+        "🗿", "🕊"
+
     ]
 
 LOGGER_CONFIG_JSON = {
