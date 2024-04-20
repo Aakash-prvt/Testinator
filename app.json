@@ -1,0 +1,36 @@
+{
+  "name": "Auto Reaction Bot",
+  "description": "Reacts to the message automatically",
+  "keywords": [
+    "auto",
+    "react",
+    "bot"
+  ],
+  "repository": "https://github.com/dgaakash/reactor",
+  "logo": "https://ibb.co/FgPVtzw",
+  "env": {
+    "TG_BOT_TOKEN": {
+      "description": "Your Bot token, Get it from @Botfather",
+      "value": ""
+    },
+    "TG_API_ID": {
+      "description": "app id",
+      "value": "16768772"
+    },
+    "TG_API_HASH":{
+      "description": "API HASH",
+      "value": "08d78fb05bdb90f1be4a4f1f0fef5f1e"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}
