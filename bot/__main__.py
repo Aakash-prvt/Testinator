@@ -2,6 +2,7 @@ from bot import TelegramBot, logger
 from aiohttp import web
 import os
 import asyncio
+from pyrogram import idle
 
 async def handle(request):
     return web.Response(text="Hello, Render!")
@@ -17,8 +18,9 @@ async def init_web_app():
 
 async def run_telegram_bot():
     logger.info('Initializing...')
-    await TelegramBot.start()  # Use a method that doesn't start a new event loop
-    await TelegramBot.idle()   # Keep the bot running
+    await TelegramBot.start()  # Start the bot
+    await idle()  # Keep the bot running until interrupted
+    await TelegramBot.stop()  # Stop the bot when idle is interrupted
 
 async def main():
     await asyncio.gather(
