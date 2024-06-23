@@ -17,7 +17,8 @@ async def init_web_app():
 
 async def run_telegram_bot():
     logger.info('Initializing...')
-    await TelegramBot.run()
+    await TelegramBot.start()  # Use a method that doesn't start a new event loop
+    await TelegramBot.idle()   # Keep the bot running
 
 async def main():
     await asyncio.gather(
