@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: my-bot
+    env: python
+    buildCommand: ""
+    startCommand: "python app.py"
+    envVars:
+      - key: PORT
+        value: 5000
