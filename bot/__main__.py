@@ -1,31 +1,29 @@
 from bot import TelegramBot, logger
-from flask import Flask
+from aiohttp import web
 import os
-import threading
+import asyncio
 
-app = Flask(__name__)
+async def handle(request):
+    return web.Response(text="Hello, Render!")
 
-@app.route('/')
-def home():
-    return 'Hello, Render!'
-
-def run_flask():
+async def init_web_app():
+    app = web.Application()
+    app.router.add_get('/', handle)
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, '0.0.0.0', port)
+    await site.start()
 
-def run_telegram_bot():
+async def run_telegram_bot():
     logger.info('Initializing...')
-    TelegramBot.run()  # Adjust based on your bot's actual run method
+    await TelegramBot.run()
+
+async def main():
+    await asyncio.gather(
+        init_web_app(),
+        run_telegram_bot()
+    )
 
 if __name__ == '__main__':
-    # Create threads for Flask and the Telegram bot
-    flask_thread = threading.Thread(target=run_flask)
-    bot_thread = threading.Thread(target=run_telegram_bot)
-
-    # Start the threads
-    flask_thread.start()
-    bot_thread.start()
-
-    # Wait for both threads to complete
-    flask_thread.join()
-    bot_thread.join()
+    asyncio.run(main())
