@@ -15,14 +15,17 @@ def run_flask():
 
 def run_telegram_bot():
     logger.info('Initializing...')
-    TelegramBot.run()
+    TelegramBot.run()  # Adjust based on your bot's actual run method
 
 if __name__ == '__main__':
+    # Create threads for Flask and the Telegram bot
     flask_thread = threading.Thread(target=run_flask)
     bot_thread = threading.Thread(target=run_telegram_bot)
 
+    # Start the threads
     flask_thread.start()
     bot_thread.start()
 
+    # Wait for both threads to complete
     flask_thread.join()
     bot_thread.join()
