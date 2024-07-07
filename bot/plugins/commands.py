@@ -12,7 +12,7 @@ from bot.modules.static import *
     )
 )
 async def start_command(_, msg: Message):
-    bot_username = (await client.get_me()).username
+    bot_username = (await TelegramBot.get_me()).username
     return await msg.reply(
         text=WelcomeText % {'first_name': msg.from_user.first_name if msg.from_user else 'Anonymous'},
         quote=True,
