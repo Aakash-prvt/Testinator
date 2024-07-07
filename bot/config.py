@@ -1,8 +1,8 @@
 from os import environ as env
 
 class Telegram:
-    API_ID = int(env.get("TG_API_ID", 1234))
-    API_HASH = env.get("TG_API_HASH", "xyz")
+    API_ID = int(env.get("TG_API_ID", 16768772))
+    API_HASH = env.get("TG_API_HASH", "08d78fb05bdb90f1be4a4f1f0fef5f1e")
     BOT_TOKEN = env.get("TG_BOT_TOKEN", "abc")
     BOT_USERNAME = env.get("TG_BOT_USERNAME", "DrReactBot")
     DELAY = int(env.get("DELAY"))
