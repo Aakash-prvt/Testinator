@@ -6,7 +6,7 @@ from random import choice
 from bot import TelegramBot
 from bot.config import Telegram
 
-@TelegramBot.on_message(filters.all)
+@TelegramBot.on_message(filters.photo)
 async def send_reaction(_, msg: Message):
     try:
         await asyncio.sleep(Telegram.DELAY)
